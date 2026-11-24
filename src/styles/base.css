@@ -1,0 +1,56 @@
+:root {
+  --bg: #16171b;
+  --panel: #1d1f24;
+  --side: #1a1b20;
+  --line: #32353d;
+  --line-soft: #2a2c33;
+  --input: #121316;
+  --text: #e8e6e1;
+  --text-soft: #cfcdc7;
+  --muted: #9a9ca6;
+  --accent: #f0a43a;
+  --accent-ink: #2a1a00;
+  --ok: #7be08e;
+}
+
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; margin: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font: 14px/1.4 "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  overflow: hidden;
+}
+
+button { font: inherit; color: inherit; cursor: pointer; }
+button:disabled { opacity: 0.45; cursor: default; }
+button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+input[type="range"] { accent-color: var(--accent); }
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-thumb { background: #3a3d46; border-radius: 6px; }
+
+.btn {
+  height: 36px; padding: 0 12px; border-radius: 6px;
+  border: 1px solid var(--line); background: transparent;
+  color: var(--text-soft); font-size: 13px; font-weight: 500;
+}
+.btn:hover:not(:disabled) { background: #ffffff0a; }
+.btn--primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); font-weight: 700; }
+.btn--primary:hover:not(:disabled) { background: #f5b255; }
+.btn--danger { color: #ff8a8a; border-color: #5a2f33; }
+
+.input {
+  width: 100%; height: 36px; padding: 0 12px; border-radius: 6px;
+  border: 1px solid var(--line); background: var(--input);
+  color: var(--text); font-size: 13px;
+}
+textarea.input { height: auto; min-height: 80px; padding: 8px 12px; resize: vertical; }
+
+.icon-btn { width: 32px; height: 32px; border: 0; border-radius: 6px; background: transparent; color: var(--muted); }
+.icon-btn:hover { background: #ffffff0f; }
+
+.dot { width: 8px; height: 8px; border-radius: 2px; flex: none; }
+.muted { color: var(--muted); }
+.error-text { color: #ff8a8a; font-size: 13px; }

@@ -11,11 +11,7 @@
   },
   "app": {
     "windows": [
-      {
-        "title": "nova-launcher",
-        "width": 800,
-        "height": 600
-      }
+      { "title": "Nova", "width": 1280, "height": 800, "minWidth": 1100, "minHeight": 640 }
     ],
     "security": {
       "csp": null
