@@ -6,9 +6,21 @@ function hashString(text: string): number {
   return hash;
 }
 
+export function coverHue(name: string): number {
+  return hashString(name) % 360;
+}
+
 export function coverBackground(name: string): string {
-  const hue = hashString(name) % 360;
+  const hue = coverHue(name);
   return `linear-gradient(160deg, hsl(${hue} 55% 42%), hsl(${(hue + 40) % 360} 55% 16%))`;
+}
+
+/** Nền loang màu theo tông màu của game đang chọn (Chế độ Gaming). */
+export function ambientBackground(hue: number): string {
+  return (
+    `radial-gradient(900px 620px at 72% 8%, hsl(${hue} 70% 34% / 0.6), transparent 62%), ` +
+    `radial-gradient(760px 520px at 8% 100%, hsl(${(hue + 40) % 360} 70% 30% / 0.5), transparent 62%), #0b0d1a`
+  );
 }
 
 export function initials(name: string): string {
