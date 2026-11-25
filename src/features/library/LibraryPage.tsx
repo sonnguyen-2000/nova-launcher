@@ -21,7 +21,7 @@ type DialogState =
   | { kind: "delete"; game: Game }
   | { kind: "scan" };
 
-export function LibraryPage() {
+export function LibraryPage({ onEnterGaming }: { onEnterGaming: () => void }) {
   const library = useGames();
   const running = useRunningGames(library.reload);
   const view = useLibraryView(library.games);
@@ -77,6 +77,7 @@ export function LibraryPage() {
         onQuery={view.setQuery}
         onAdd={() => setDialog({ kind: "add" })}
         onScan={() => setDialog({ kind: "scan" })}
+        onGamingMode={onEnterGaming}
       />
 
       <div className="library__body">

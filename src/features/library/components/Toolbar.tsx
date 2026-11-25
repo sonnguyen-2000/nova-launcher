@@ -14,11 +14,14 @@ interface ToolbarProps {
   onQuery: (query: string) => void;
   onAdd: () => void;
   onScan: () => void;
+  onGamingMode: () => void;
 }
 
 export function Toolbar(props: ToolbarProps) {
-  const { view, onView, group, onCycleGroup, sort, onCycleSort, coverSize, onCoverSize, query, onQuery, onAdd, onScan } =
-    props;
+  const {
+    view, onView, group, onCycleGroup, sort, onCycleSort,
+    coverSize, onCoverSize, query, onQuery, onAdd, onScan, onGamingMode,
+  } = props;
 
   return (
     <header className="toolbar">
@@ -57,6 +60,9 @@ export function Toolbar(props: ToolbarProps) {
 
       <div className="toolbar__spacer" />
 
+      <button className="btn" onClick={onGamingMode}>
+        Chế độ Gaming
+      </button>
       <button className="btn" onClick={onScan}>
         Quét thư mục
       </button>
