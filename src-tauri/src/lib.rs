@@ -9,7 +9,7 @@ mod utils;
 
 use tauri::Manager;
 
-use crate::commands::{game_commands, launcher_commands, scan_commands};
+use crate::commands::{game_commands, launcher_commands, scan_commands, window_commands};
 use crate::services::session_monitor::SessionMonitor;
 use crate::state::AppState;
 
@@ -40,6 +40,9 @@ pub fn run() {
             scan_commands::remove_scan_folder,
             scan_commands::scan_games,
             scan_commands::import_games,
+            window_commands::set_fullscreen,
+            window_commands::focus_window,
+            window_commands::exit_app,
         ])
         .run(tauri::generate_context!())
         .expect("Không thể khởi chạy ứng dụng");
